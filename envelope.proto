@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package loggregator;
+
+message Envelope{
+  int64 timestamp = 1;
+  string source_uuid = 2;
+  map<string, Value> tags = 3;
+
+  oneof message {
+    Log log = 4;
+    Counter counter = 5;
+    Gauge gauge = 6;
+    CorrelatedGauge correlated_gauge = 7;
+    Timer timer = 8;
+  }
+}
+
+message Value {
+  oneof data {
+    string text = 1;
+    int64 integer = 2;
+    double decimal = 3;
+  }
+}
+
+message Log {
+    bytes message = 1;
+    Type type = 2;
+
+    enum Type {
+        OUT = 0;
+        ERR = 1;
+    }
+}
+
+message Counter {
+    string name = 1;
+
+    oneof value {
+        uint64 delta = 2;
+        uint64 total = 3;
+    }
+}
+
+message Gauge {
+    string name = 1;
+    double value = 2;
+}
+
+message CorrelatedGauge {
+    map<string, double> metrics = 1;
+}
+
+message Timer {
+    string name = 1;
+    uint64 start = 2;
+    uint64 stop = 3;
+}
