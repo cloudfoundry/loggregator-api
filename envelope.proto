@@ -45,7 +45,8 @@ message Counter {
 
 message Gauge {
     string name = 1;
-    double value = 2;
+    string unit = 2;
+    double value = 3;
 }
 
 message CorrelatedGauge {
