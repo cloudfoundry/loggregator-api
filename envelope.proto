@@ -11,8 +11,7 @@ message Envelope{
     Log log = 4;
     Counter counter = 5;
     Gauge gauge = 6;
-    CorrelatedGauge correlated_gauge = 7;
-    Timer timer = 8;
+    Timer timer = 7;
   }
 }
 
@@ -44,13 +43,12 @@ message Counter {
 }
 
 message Gauge {
-    string name = 1;
-    string unit = 2;
-    double value = 3;
+    map<string, GaugeValue> metrics = 1;
 }
 
-message CorrelatedGauge {
-    map<string, double> metrics = 1;
+message GaugeValue {
+    string unit = 1;
+    double value = 2;
 }
 
 message Timer {
