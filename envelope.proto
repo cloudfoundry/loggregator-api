@@ -25,7 +25,7 @@ message Value {
 }
 
 message Log {
-    bytes message = 1;
+    bytes payload = 1;
     Type type = 2;
 
     enum Type {
