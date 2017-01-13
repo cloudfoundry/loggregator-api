@@ -53,6 +53,6 @@ message GaugeValue {
 
 message Timer {
     string name = 1;
-    uint64 start = 2;
-    uint64 stop = 3;
+    int64 start = 2;
+    int64 stop = 3;
 }
