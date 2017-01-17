@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package loggregator;
+
+import "envelope.proto";
+
+service MetronIngress {
+    rpc Sender(stream loggregator.Envelope) returns (MetronResponse) {}
+}
+
+message MetronResponse {}
