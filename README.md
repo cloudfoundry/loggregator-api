@@ -1,6 +1,22 @@
 # loggregator-api
 **WARNING**: This repo is a work in progress and will change.
 
+### Table of Contents
+
+* [v2 Envelope](#v2-envelope)
+* [v2 Envelope Types](#v2-envelope-types)
+  * [Log](#log)
+  * [Counter](#counter)
+  * [Gauge](#gauge)
+  * [Timer](#timer)
+* [v2 -> v1 mapping](#v2---v1-mapping)
+  * [Envelope](#envelope)
+  * [HttpStartStop](#httpstartstop)
+  * [LogMessage](#logmessage)
+  * [CounterEvent](#counterevent)
+  * [ValueMetric](#valuemetric)
+  * [ContainerMetric](#containermetric)
+
 ## v2 Envelope
 
 | Field | Description |
