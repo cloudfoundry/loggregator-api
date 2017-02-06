@@ -19,11 +19,11 @@
 
 ## v2 Envelope
 
-| Field | Description |
-| ----- | ----------- |
-| timestamp | UNIX timestamp in nanoseconds. |
-| source_uuid | Deterministic id for source of envelope. (*e.g.* `984992f6-3cfb-4417-9321-786ee5233e9c` for an app or `doppler/az3/1` for a doppler)
-| tags | key/value tags to include additional identifying information. (*e.g.* `deployment=cf-warden`) |
+| Field       | Description                                                                                                                        |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------|
+| timestamp   | UNIX timestamp in nanoseconds.                                                                                                     |
+| source_uuid | Deterministic id for source of envelope. (e.g. `984992f6-3cfb-4417-9321-786ee5233e9c` for an app or `doppler/az3/1` for a doppler) |
+| tags        | key/value tags to include additional identifying information. (e.g. `deployment=cf-warden`)                                        |
 
 
 ## v2 Envelope Types
@@ -52,91 +52,87 @@ A *Timer* is used to represent a metric that captures the duration of an event. 
 
 ----
 
-## v2 -> v1 Mapping
+## v1 -> v2 Mapping
 
 The properties in a v1 envelope can be obtained from a v2 envelope using the following mappings:
 
 #### Envelope
 
-|v1 field | maps from v2 field|
-|---------|-------------------|
-|`Timestamp`|`Envelope.timestamp`|
-|`Tags`|`Envelope.tags`|
-|`Origin`| `Envelope.Tags['origin'].text`] |
-|`Deployment`| `Envelope.Tags['deployment'].text`] |
-|`Job`| `Envelope.Tags['job'].text`] |
-|`Index`| `Envelope.Tags['index'].text`] |
-|`Ip`| `Envelope.Tags['ip'].text`] |
+| v1         | v2                               |
+|------------|----------------------------------|
+| timestamp  | envelope.timestamp               |
+| tags       | envelope.tags                    |
+| origin     | envelope.tags['origin'].text     |
+| deployment | envelope.tags['deployment'].text |
+| job        | envelope.tags['job'].text        |
+| index      | envelope.tags['index'].text      |
+| ip         | envelope.tags['ip'].text         |
 
 
 #### HttpStartStop
 
-A *HttpStartStop* envelope is derived from a v2 *Timer* envelope.
+An *HttpStartStop* envelope is derived from a v2 *Timer* envelope.
 
-|v1 field | maps from v2 field|
-|---------|-------------------|
-| `startTimestamp` |`Timer.start` |
-| `stopTimestamp` | `Timer.stop` |
-| `applicationId` | `Envelope.source_uuid`|
-| `requestId` | `Envelope.Tags['request_id'].text` |
-| `peerType` | `Envelope.Tags['peer_type'].text` |
-| `method` | `Envelope.Tags['method'].text` |
-| `uri` | `Envelope.Tags['uri'].text`|
-| `remoteAddress` | `Envelope.Tags['remote_address'].text` |
-| `userAgent` | `Envelope.Tags['user_agent'].text` |
-| `statusCode` | `Envelope.Tags['status_code'].integer` |
-| `contentLength` | `Envelope.Tags['content_length'].integer` |
-| `instanceIndex` | `Envelope.Tags['instance_index'].integer`|
-| `instanceId` | `Envelope.Tags['instance_id'].text`|
-| `forwarded` | `Envelope.Tags['forwarded'].text`]|
+| v1             | v2                                      |
+|----------------|-----------------------------------------|
+| startTimestamp | timer.start                             |
+| stopTimestamp  | timer.stop                              |
+| applicationId  | envelope.source_uuid                    |
+| requestId      | envelope.tags['request_id'].text        |
+| peerType       | envelope.tags['peer_type'].text         |
+| method         | envelope.tags['method'].text            |
+| uri            | envelope.tags['uri'].text               |
+| remoteAddress  | envelope.tags['remote_address'].text    |
+| userAgent      | envelope.tags['user_agent'].text        |
+| statusCode     | envelope.tags['status_code'].integer    |
+| contentLength  | envelope.tags['content_length'].integer |
+| instanceIndex  | envelope.tags['instance_index'].integer |
+| instanceId     | envelope.tags['instance_id'].text       |
+| forwarded      | envelope.tags['forwarded'].text         |
 
 #### LogMessage
 
 A *LogMessage* envelope is derived from a v2 *Log* envelope
 
-|v1 field | maps from v2 field|
-|---------|-------------------|
-| `message` | `Log.payload`|
-| `message_type` | `Log.type`|
-| `timestamp` | `Envelope.timestamp`|
-| `app_id` | `Envelope.source_uuid`|
-| `source_type` | `Envelope.Tags['source_type'].text`|
-| `source_instance` | `Envelope.Tags['source_instance'].text` |
+| v1              | v2                                    |
+|-----------------|---------------------------------------|
+| message         | log.payload                           |
+| message_type    | log.type                              |
+| timestamp       | envelope.timestamp                    |
+| app_id          | envelope.source_uuid                  |
+| source_type     | envelope.tags['source_type'].text     |
+| source_instance | envelope.tags['source_instance'].text |
 
 #### CounterEvent
 
 A *CounterEvent* envelope is dervied from a v2 *Counter* envelope
 
-|v1 field | maps from v2 field|
-|---------|-------------------|
-| `name` | `Counter.name`|
-| `delta` | *Does not convert*|
-| `total` | `Counter.total`|
+| v1    | v2            |
+|-------|---------------|
+| name  | counter.name  |
+| delta | -             |
+| total | counter.total |
 
 #### ValueMetric
 
 A *ValueMetric* envelope is dervied from a v2 *Gauge* envelope if and only if there is a single *Gauge* metric.
 
-|v1 field | maps from v2 field|
-|---------|-------------------|
-| `name` | *`first-key`*|
-| `value` | `Gauge.metrics[first-key].value`|
-| `unit` | `Gauge.metrics[first-key].unit`|
+| v1    | v2                             |
+|-------|--------------------------------|
+| name  | first-key                      |
+| value | gauge.metrics[first-key].value |
+| unit  | gauge.metrics[first-key].unit  |
 
 #### ContainerMetric
 
 A *ContainerMetric* envelope is dervied from a v2 *Gauge* envelope if and only if there are the correct gauge keys.
 
-|v1 field | maps from v2 field|
-|---------|-------------------|
-| `applicationId` |`Envelope.source_uuid` |
-| `instanceIndex` | `Gauge.metrics['instance_index'].value` |
-| `cpuPercentage` | `Gauge.metrics['cpu'].value`|
-| `memoryBytes` | `Gauge.metrics['memory'].value`|
-| `diskBytes` | `Gauge.metrics['disk'].value`|
-| `memoryBytesQuota` | `Gauge.metrics['memory_quota'].value`|
-| `diskBytesQuota` | `Gauge.metrics['disk_quota'].value`|
-
-
-
-
+| v1               | v2                                    |
+|------------------|---------------------------------------|
+| applicationId    | envelope.source_uuid                  |
+| instanceIndex    | gauge.metrics['instance_index'].value |
+| cpuPercentage    | gauge.metrics['cpu'].value            |
+| memoryBytes      | gauge.metrics['memory'].value         |
+| diskBytes        | gauge.metrics['disk'].value           |
+| memoryBytesQuota | gauge.metrics['memory_quota'].value   |
+| diskBytesQuota   | gauge.metrics['disk_quota'].value     |
