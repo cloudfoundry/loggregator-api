@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package loggregator;
+
+import "envelope.proto";
+
+service Egress {
+  rpc Sender(StreamRequest) returns (stream loggregator.Envelope) {}
+}
+
+message StreamRequest {
+  string shard_id = 1;
+  Filter filter = 2;
+}
+
+message Filter {
+  string app_id = 1;
+}
