@@ -5,10 +5,10 @@ package loggregator;
 import "envelope.proto";
 
 service Egress {
-  rpc Sender(StreamRequest) returns (stream loggregator.Envelope) {}
+  rpc Sender(EgressRequest) returns (stream loggregator.Envelope) {}
 }
 
-message StreamRequest {
+message EgressRequest {
   string shard_id = 1;
   Filter filter = 2;
 }

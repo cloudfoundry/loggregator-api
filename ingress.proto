@@ -4,8 +4,8 @@ package loggregator;
 
 import "envelope.proto";
 
-service MetronIngress {
-    rpc Sender(stream loggregator.Envelope) returns (MetronResponse) {}
+service Ingress {
+    rpc Sender(stream loggregator.Envelope) returns (IngressResponse) {}
 }
 
-message MetronResponse {}
+message IngressResponse {}
