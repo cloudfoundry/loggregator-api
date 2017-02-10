@@ -4,7 +4,7 @@ package loggregator;
 
 message Envelope{
   int64 timestamp = 1;
-  string source_uuid = 2;
+  string source_id = 2;
   map<string, Value> tags = 3;
 
   oneof message {

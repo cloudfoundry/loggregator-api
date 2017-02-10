@@ -19,11 +19,11 @@
 
 ## v2 Envelope
 
-| Field       | Description                                                                                                                        |
-|-------------|------------------------------------------------------------------------------------------------------------------------------------|
-| timestamp   | UNIX timestamp in nanoseconds.                                                                                                     |
-| source_uuid | Deterministic id for source of envelope. (e.g. `984992f6-3cfb-4417-9321-786ee5233e9c` for an app or `doppler/az3/1` for a doppler) |
-| tags        | key/value tags to include additional identifying information. (e.g. `deployment=cf-warden`)                                        |
+| Field     | Description                                                                                                                        |
+|-----------|------------------------------------------------------------------------------------------------------------------------------------|
+| timestamp | UNIX timestamp in nanoseconds.                                                                                                     |
+| source_id | Deterministic id for source of envelope. (e.g. `984992f6-3cfb-4417-9321-786ee5233e9c` for an app or `doppler/az3/1` for a doppler) |
+| tags      | key/value tags to include additional identifying information. (e.g. `deployment=cf-warden`)                                        |
 
 
 ## v2 Envelope Types
@@ -36,13 +36,13 @@ It represents whether the log is emitted to STDOUT or STDERR.
 
 #### Counter
 
-A *Counter* is used to represent a metric that only increases in value (*e.g.* `metron.sentEnvelopes`). 
+A *Counter* is used to represent a metric that only increases in value (*e.g.* `metron.sentEnvelopes`).
 
 The emitter of a counter must set the `delta` (anything else will be discarded). It also provides the sum of all emitted values.
 
 #### Gauge
 
-A *Gauge* is used to represent a metric that can have arbitary numeric values that increase or decrease. 
+A *Gauge* is used to represent a metric that can have arbitary numeric values that increase or decrease.
 
 It can be used emit a set of relatable metrics (*e.g.* `memory{value=2048, unit=byte}, disk{value=4096, unit=byte}, cpu{value=2, unit=percentage}`)
 
@@ -77,7 +77,7 @@ An *HttpStartStop* envelope is derived from a v2 *Timer* envelope.
 |----------------|-----------------------------------------|
 | startTimestamp | timer.start                             |
 | stopTimestamp  | timer.stop                              |
-| applicationId  | envelope.source_uuid                    |
+| applicationId  | envelope.source_id                      |
 | requestId      | envelope.tags['request_id'].text        |
 | peerType       | envelope.tags['peer_type'].text         |
 | method         | envelope.tags['method'].text            |
@@ -99,7 +99,7 @@ A *LogMessage* envelope is derived from a v2 *Log* envelope
 | message         | log.payload                           |
 | message_type    | log.type                              |
 | timestamp       | envelope.timestamp                    |
-| app_id          | envelope.source_uuid                  |
+| app_id          | envelope.source_id                    |
 | source_type     | envelope.tags['source_type'].text     |
 | source_instance | envelope.tags['source_instance'].text |
 
@@ -129,7 +129,7 @@ A *ContainerMetric* envelope is dervied from a v2 *Gauge* envelope if and only i
 
 | v1               | v2                                    |
 |------------------|---------------------------------------|
-| applicationId    | envelope.source_uuid                  |
+| applicationId    | envelope.source_id                    |
 | instanceIndex    | gauge.metrics['instance_index'].value |
 | cpuPercentage    | gauge.metrics['cpu'].value            |
 | memoryBytes      | gauge.metrics['memory'].value         |
