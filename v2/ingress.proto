@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package loggregator;
+package loggregator.v2;
 
 import "envelope.proto";
 
