@@ -56,6 +56,13 @@ A *Timer* is used to represent a metric that captures the duration of an event. 
 
 The properties in a v1 envelope can be obtained from a v2 envelope using the following mappings:
 
+### Tags
+
+Note previous versions of the Loggregator API automatically added tags to
+envelopes for things like `deployment`, `job`, and `index`. This functionality
+has been removed in the v2 API. Users should manually add whatever tags they
+require.
+
 #### Envelope
 
 | v1         | v2                               |
