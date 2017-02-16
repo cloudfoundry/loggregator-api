@@ -19,11 +19,11 @@
 
 ## v2 Envelope
 
-| Field     | Description                                                                                                                        |
-|-----------|------------------------------------------------------------------------------------------------------------------------------------|
-| timestamp | UNIX timestamp in nanoseconds.                                                                                                     |
-| source_id | Deterministic id for source of envelope. (e.g. `984992f6-3cfb-4417-9321-786ee5233e9c` for an app or `doppler/az3/1` for a doppler) |
-| tags      | key/value tags to include additional identifying information. (e.g. `deployment=cf-warden`)                                        |
+| Field     | Description                                                                                                                     |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------|
+| timestamp | UNIX timestamp in nanoseconds.                                                                                                  |
+| source_id | Deterministic id for source of envelope. (e.g. `984992f6-3cfb-4417-9321-786ee5233e9c` for an app or `cf/doppler` for a doppler) |
+| tags      | key/value tags to include additional identifying information. (e.g. `deployment=cf-warden`)                                     |
 
 
 ## v2 Envelope Types
