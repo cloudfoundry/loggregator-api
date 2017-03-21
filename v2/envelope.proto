@@ -5,7 +5,7 @@ package loggregator.v2;
 message Envelope{
   int64 timestamp = 1;
   string source_id = 2;
-  string instance_id = 8
+  string instance_id = 8;
   map<string, Value> tags = 3;
 
   oneof message {
