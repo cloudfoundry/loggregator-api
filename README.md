@@ -19,11 +19,20 @@
 
 ## v2 Envelope
 
-| Field     | Description                                                                                                                     |
-|-----------|---------------------------------------------------------------------------------------------------------------------------------|
-| timestamp | UNIX timestamp in nanoseconds.                                                                                                  |
-| source_id | Deterministic id for source of envelope. (e.g. `984992f6-3cfb-4417-9321-786ee5233e9c` for an app or `cf/doppler` for a doppler) |
-| tags      | key/value tags to include additional identifying information. (e.g. `deployment=cf-warden`)                                     |
+| Field       | Description                                                                                                                     |
+|-------------|---------------------------------------------------------------------------------------------------------------------------------|
+| timestamp   | UNIX timestamp in nanoseconds.                                                                                                  |
+| source_id   | The source's ID of an envelope. (e.g., `984992f6-3cfb-4417-9321-786ee5233e9c` for an app or `cf/doppler` for a doppler)         |
+| instance_id | The instance of a particular source (e.g., 1 for an app or `ede37607-52f0-4154-bb1b-4ae35212e126` for a doppler)                |
+| tags        | key/value tags to include additional identifying information. (e.g. `deployment=cf-warden`)                                     |
+
+
+The meaning of `source_id` and `instance_id` depend on the context of their
+usage. There is either a Bosh-deployed instance group or a CF-pushed
+application. In the case of an instance group, `source_id` refers to a job
+name, e.g., Doppler, and `instance_id` refers to the particular instance
+guid. In the case of a CF application, the `source_id` refers to the app guid,
+and the `instance_id` refers to the instance number of the application.
 
 
 ## v2 Envelope Types
@@ -72,7 +81,7 @@ require.
 | origin     | envelope.tags['origin'].text     |
 | deployment | envelope.tags['deployment'].text |
 | job        | envelope.tags['job'].text        |
-| index      | envelope.tags['index'].text      |
+| index      | envelope.instance_id             |
 | ip         | envelope.tags['ip'].text         |
 
 
@@ -94,7 +103,6 @@ An *HttpStartStop* envelope is derived from a v2 *Timer* envelope.
 | statusCode     | envelope.tags['status_code'].integer    |
 | contentLength  | envelope.tags['content_length'].integer |
 | instanceIndex  | envelope.tags['instance_index'].integer |
-| instanceId     | envelope.tags['instance_id'].text       |
 | forwarded      | envelope.tags['forwarded'].text         |
 
 #### LogMessage
