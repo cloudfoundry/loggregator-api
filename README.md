@@ -116,7 +116,7 @@ A *LogMessage* envelope is derived from a v2 *Log* envelope
 | timestamp       | envelope.timestamp                    |
 | app_id          | envelope.source_id                    |
 | source_type     | envelope.tags['source_type'].text     |
-| source_instance | envelope.tags['source_instance'].text |
+| source_instance | envelope.instance_id                  |
 
 #### CounterEvent
 
