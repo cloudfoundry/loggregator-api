@@ -81,7 +81,7 @@ require.
 | origin     | envelope.tags['origin'].text     |
 | deployment | envelope.tags['deployment'].text |
 | job        | envelope.tags['job'].text        |
-| index      | envelope.instance_id             |
+| index      | envelope.tags['index'].text      |
 | ip         | envelope.tags['ip'].text         |
 
 
