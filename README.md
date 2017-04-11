@@ -1,5 +1,8 @@
 # loggregator-api
-**WARNING**: This repo is a work in progress and will change.
+
+This is the v2 API for [Loggregator](https://github.com/cloudfoundry/loggregator).
+
+**WARNING**: This API is in alpha and is subject to change.
 
 ### Table of Contents
 
