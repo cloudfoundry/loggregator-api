@@ -19,6 +19,7 @@ This is the v2 API for [Loggregator](https://github.com/cloudfoundry/loggregator
   * [CounterEvent](#counterevent)
   * [ValueMetric](#valuemetric)
   * [ContainerMetric](#containermetric)
+* [Client Library](#client)
 
 ## v2 Envelope
 
@@ -154,3 +155,13 @@ A *ContainerMetric* envelope is dervied from a v2 *Gauge* envelope if and only i
 | diskBytes        | gauge.metrics['disk'].value           |
 | memoryBytesQuota | gauge.metrics['memory_quota'].value   |
 | diskBytesQuota   | gauge.metrics['disk_quota'].value     |
+
+### Client
+
+[go-loggregator][client-library] is a client library that consumes the v2 API
+to make it easier to create a client and connect to Loggregator to obtain logs
+and metrics.
+
+
+
+[client-library]: https://code.cloudfoundry.org/go-loggregator
