@@ -134,7 +134,8 @@ A *CounterEvent* envelope is dervied from a v2 *Counter* envelope
 
 #### ValueMetric
 
-A *ValueMetric* envelope is dervied from a v2 *Gauge* envelope if and only if there is a single *Gauge* metric.
+A *ValueMetric* envelope is dervied from a v2 *Gauge* envelope. Each gauge
+value in a *Gauge* envelope will become a single *ValueMetric* envelope.
 
 | v1    | v2                             |
 |-------|--------------------------------|
