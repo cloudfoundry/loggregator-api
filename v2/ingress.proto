@@ -6,6 +6,14 @@ import "envelope.proto";
 
 service Ingress {
     rpc Sender(stream loggregator.v2.Envelope) returns (IngressResponse) {}
+    rpc BatchSender(stream EnvelopeBatch) returns (BatchSenderResponse) {}
 }
 
 message IngressResponse {}
+
+
+message EnvelopeBatch {
+    repeated loggregator.v2.Envelope batch = 1;
+}
+
+message BatchSenderResponse {}
