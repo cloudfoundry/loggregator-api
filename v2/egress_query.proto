@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package loggregator.v2;
+
+import "envelope.proto";
+
+service EgressQuery {
+  rpc ContainerMetrics(ContainerMetricRequest) returns (QueryResponse) {}
+}
+
+message ContainerMetricRequest {
+  string source_id = 1;
+}
+
+message QueryResponse {
+  repeated loggregator.v2.Envelope envelopes = 1;
+}
