@@ -65,7 +65,7 @@ A *Timer* is used to represent a metric that captures the duration of an event. 
 
 ----
 
-## v1 -> v2 Mapping
+## v2 -> v1 Mapping
 
 The properties in a v1 envelope can be obtained from a v2 envelope using the following mappings:
 
