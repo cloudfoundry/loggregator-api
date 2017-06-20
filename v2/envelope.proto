@@ -4,6 +4,7 @@ package loggregator.v2;
 
 message Envelope{
   int64 timestamp = 1;
+  SourceType source_type = 9;
   string source_id = 2;
   string instance_id = 8;
   map<string, Value> tags = 3;
@@ -56,4 +57,10 @@ message Timer {
     string name = 1;
     int64 start = 2;
     int64 stop = 3;
+}
+
+enum SourceType {
+    COMPONENT = 0;
+    APPLICATION = 1;
+    SERVICE = 2;
 }
