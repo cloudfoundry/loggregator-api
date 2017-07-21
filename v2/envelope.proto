@@ -6,7 +6,8 @@ message Envelope{
   int64 timestamp = 1;
   string source_id = 2;
   string instance_id = 8;
-  map<string, Value> tags = 3;
+  map<string, Value> deprecated_tags = 3;
+  map<string, string> tags = 9;
 
   oneof message {
     Log log = 4;
