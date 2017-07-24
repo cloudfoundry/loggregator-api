@@ -10,6 +10,9 @@ service EgressQuery {
 
 message ContainerMetricRequest {
   string source_id = 1;
+
+  // TODO: This can be removed once the envelope.deprecated_tags is removed.
+  bool use_preferred_tags = 2;
 }
 
 message QueryResponse {

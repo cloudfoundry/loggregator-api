@@ -11,6 +11,9 @@ service Egress {
 message EgressRequest {
   string shard_id = 1;
   Filter filter = 2;
+
+  // TODO: This can be removed once the envelope.deprecated_tags is removed.
+  bool   use_preferred_tags = 3;
 }
 
 message Filter {
