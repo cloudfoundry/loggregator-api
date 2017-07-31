@@ -16,5 +16,5 @@ message ContainerMetricRequest {
 }
 
 message QueryResponse {
-  repeated loggregator.v2.Envelope envelopes = 1;
+  repeated Envelope envelopes = 1;
 }
