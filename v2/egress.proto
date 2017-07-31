@@ -5,7 +5,7 @@ package loggregator.v2;
 import "envelope.proto";
 
 service Egress {
-  rpc Receiver(EgressRequest) returns (stream loggregator.v2.Envelope) {}
+  rpc Receiver(EgressRequest) returns (stream Envelope) {}
 }
 
 message EgressRequest {
