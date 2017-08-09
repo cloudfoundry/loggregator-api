@@ -11,9 +11,4 @@ service Ingress {
 
 message IngressResponse {}
 
-
-message EnvelopeBatch {
-    repeated Envelope batch = 1;
-}
-
 message BatchSenderResponse {}

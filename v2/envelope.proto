@@ -17,6 +17,10 @@ message Envelope{
   }
 }
 
+message EnvelopeBatch {
+  repeated Envelope batch = 1;
+}
+
 message Value {
   oneof data {
     string text = 1;
