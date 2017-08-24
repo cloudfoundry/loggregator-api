@@ -2,8 +2,6 @@
 
 This is the v2 API for [Loggregator][loggregator].
 
-**WARNING**: This API is in alpha and is subject to change.
-
 ### Table of Contents
 
 * [v2 Envelope](#v2-envelope)
