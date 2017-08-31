@@ -41,11 +41,8 @@ message Log {
 
 message Counter {
     string name = 1;
-
-    oneof value {
-        uint64 delta = 2;
-        uint64 total = 3;
-    }
+    uint64 delta = 2;
+    uint64 total = 3;
 }
 
 message Gauge {
