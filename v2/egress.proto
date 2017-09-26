@@ -30,8 +30,12 @@ message Filter {
 
   oneof Message {
     LogFilter log = 2;
+    MetricFilter metric = 3;
   }
 }
 
 message LogFilter {
+}
+
+message MetricFilter {
 }
