@@ -47,25 +47,31 @@ It represents whether the log is emitted to STDOUT or STDERR.
 
 #### Counter
 
-A *Counter* is used to represent a metric that only increases in value (*e.g.* `metron.sentEnvelopes`).
+A *Counter* is used to represent a metric that only increases in value (*e.g.*
+`metron.sentEnvelopes`).
 
-The emitter of a counter must set the `delta` (anything else will be discarded). It also provides the sum of all emitted values.
+The emitter of a counter must set the `delta` (anything else will be
+discarded). It also provides the sum of all emitted values.
 
 #### Gauge
 
-A *Gauge* is used to represent a metric that can have arbitary numeric values that increase or decrease.
+A *Gauge* is used to represent a metric that can have arbitary numeric values
+that increase or decrease.
 
-It can be used emit a set of relatable metrics (*e.g.* `memory{value=2048, unit=byte}, disk{value=4096, unit=byte}, cpu{value=2, unit=percentage}`)
+It can be used emit a set of relatable metrics (*e.g.* `memory{value=2048,
+unit=byte}, disk{value=4096, unit=byte}, cpu{value=2, unit=percentage}`)
 
 #### Timer
 
-A *Timer* is used to represent a metric that captures the duration of an event. (*e.g.* `databasePost`)
+A *Timer* is used to represent a metric that captures the duration of an
+event. (*e.g.* `databasePost`)
 
 ----
 
 ## v2 -> v1 Mapping
 
-The properties in a v1 envelope can be obtained from a v2 envelope using the following mappings:
+The properties in a v1 envelope can be obtained from a v2 envelope using the
+following mappings:
 
 ### Tags
 
@@ -143,7 +149,8 @@ value in a *Gauge* envelope will become a single *ValueMetric* envelope.
 
 #### ContainerMetric
 
-A *ContainerMetric* envelope is dervied from a v2 *Gauge* envelope if and only if there are the correct gauge keys.
+A *ContainerMetric* envelope is dervied from a v2 *Gauge* envelope if and only
+if there are the correct gauge keys.
 
 | v1               | v2                                    |
 |------------------|---------------------------------------|
