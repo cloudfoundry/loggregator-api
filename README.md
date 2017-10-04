@@ -10,6 +10,7 @@ This is the v2 API for [Loggregator][loggregator].
   * [Counter](#counter)
   * [Gauge](#gauge)
   * [Timer](#timer)
+  * [Event](#event)
 * [v2 -> v1 mapping](#v2---v1-mapping)
   * [Envelope](#envelope)
   * [HttpStartStop](#httpstartstop)
@@ -60,6 +61,10 @@ It can be used emit a set of relatable metrics (*e.g.* `memory{value=2048, unit=
 #### Timer
 
 A *Timer* is used to represent a metric that captures the duration of an event. (*e.g.* `databasePost`)
+
+#### Event
+
+A *Event* is used to represent data related to an event that occured.
 
 ----
 
