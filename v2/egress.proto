@@ -10,28 +10,58 @@ service Egress {
 }
 
 message EgressRequest {
+  // shard_id instructs Loggregator to shard envelopes between other
+  // subscriptions with the same shard_id. Loggregator will do its best to
+  // split the load evenly between subscriptions with the same shard_id.
   string shard_id = 1;
-  Filter filter = 2;
+
+  // TODO: This can be removed once selector has been around long enough.
+  Selector legacy_selector = 2;
+
+  // selector is the preferred (over legacy_selector) mechanism to select
+  // what envelope types the subscription wants.
+  repeated Selector selector = 4;
 
   // TODO: This can be removed once the envelope.deprecated_tags is removed.
-  bool   use_preferred_tags = 3;
+  bool use_preferred_tags = 3;
 }
 
 message EgressBatchRequest {
+  // shard_id instructs Loggregator to shard envelopes between other
+  // subscriptions with the same shard_id. Loggregator will do its best to
+  // split the load evenly between subscriptions with the same shard_id.
   string shard_id = 1;
-  Filter filter = 2;
+
+  // TODO: This can be removed once selector has been around long enough.
+  Selector legacy_selector = 2;
+
+  // selector is the preferred (over legacy_selector) mechanism to select
+  // what envelope types the subscription wants.
+  repeated Selector selector = 4;
 
   // TODO: This can be removed once the envelope.deprecated_tags is removed.
-  bool   use_preferred_tags = 3;
+  bool use_preferred_tags = 3;
 }
 
-message Filter {
+// Selector instructs Loggregator to only send envelopes that match the given
+// criteria.
+message Selector {
   string source_id = 1;
 
   oneof Message {
-    LogFilter log = 2;
+    LogSelector log = 2;
+    GaugeSelector gauge = 3;
   }
 }
 
-message LogFilter {
+// LogSelector instructs Loggregator to egress Log envelopes to the given
+// subscription.
+message LogSelector {
+}
+
+// GaugeSelector instructs Loggregator to egress Gauge envelopes to the
+// given subscription. If names are provided, then only Gauge envelopes that
+// match the given names will be egressed.
+message GaugeSelector {
+  repeated string names = 1;
 }
