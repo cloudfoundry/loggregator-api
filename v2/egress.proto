@@ -50,7 +50,9 @@ message Selector {
 
   oneof Message {
     LogSelector log = 2;
-    GaugeSelector gauge = 3;
+    CounterSelector counter = 3;
+    GaugeSelector gauge = 4;
+    TimerSelector timer = 5;
   }
 }
 
@@ -60,8 +62,16 @@ message LogSelector {
 }
 
 // GaugeSelector instructs Loggregator to egress Gauge envelopes to the
-// given subscription. If names are provided, then only Gauge envelopes that
-// match the given names will be egressed.
+// given subscription.
 message GaugeSelector {
-  repeated string names = 1;
+}
+
+// CounterSelector instructs Loggregator to egress Counter envelopes to the
+// given subscription
+message CounterSelector {
+}
+
+// TimerSelector instructs Loggregator to egress Timer envelopes to the given
+// subscription.
+message TimerSelector {
 }
