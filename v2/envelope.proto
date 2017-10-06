@@ -14,7 +14,7 @@ message Envelope{
     Counter counter = 5;
     Gauge gauge = 6;
     Timer timer = 7;
-    Event event = 8;
+    Event event = 10;
   }
 }
 

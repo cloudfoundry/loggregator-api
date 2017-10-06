@@ -20,7 +20,7 @@ message EgressRequest {
 
   // selector is the preferred (over legacy_selector) mechanism to select
   // what envelope types the subscription wants.
-  repeated Selector selector = 4;
+  repeated Selector selectors = 4;
 
   // TODO: This can be removed once the envelope.deprecated_tags is removed.
   bool use_preferred_tags = 3;
