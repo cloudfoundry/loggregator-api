@@ -53,6 +53,7 @@ message Selector {
     CounterSelector counter = 3;
     GaugeSelector gauge = 4;
     TimerSelector timer = 5;
+    EventSelector event = 6;
   }
 }
 
@@ -74,4 +75,9 @@ message CounterSelector {
 // TimerSelector instructs Loggregator to egress Timer envelopes to the given
 // subscription.
 message TimerSelector {
+}
+
+// EventSelector instructs Loggregator to egress Event envelopes to the given
+// subscription.
+message EventSelector {
 }
