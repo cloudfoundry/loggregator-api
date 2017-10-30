@@ -8,11 +8,11 @@ service Ingress {
     rpc Sender(stream Envelope) returns (IngressResponse) {}
     rpc BatchSender(stream EnvelopeBatch) returns (BatchSenderResponse) {}
 
-    rpc BatchSend(EnvelopeBatch) returns (BatchSendResponse) {}
+    rpc Send(EnvelopeBatch) returns (SendResponse) {}
 }
 
 message IngressResponse {}
 
 message BatchSenderResponse {}
 
-message BatchSendResponse {}
+message SendResponse {}
