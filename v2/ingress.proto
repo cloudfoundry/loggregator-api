@@ -7,8 +7,12 @@ import "envelope.proto";
 service Ingress {
     rpc Sender(stream Envelope) returns (IngressResponse) {}
     rpc BatchSender(stream EnvelopeBatch) returns (BatchSenderResponse) {}
+
+    rpc Send(EnvelopeBatch) returns (SendResponse) {}
 }
 
 message IngressResponse {}
 
 message BatchSenderResponse {}
+
+message SendResponse {}
