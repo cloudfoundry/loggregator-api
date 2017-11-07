@@ -69,7 +69,7 @@ event. (*e.g.* `databasePost`)
 
 #### Event
 
-A *Event* is used to represent data related to an event that occured.
+An *Event* is used to represent data related to an asynchronous event that occured. 
 
 ----
 
