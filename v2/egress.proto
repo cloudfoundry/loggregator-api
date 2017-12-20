@@ -19,7 +19,8 @@ message EgressRequest {
   Selector legacy_selector = 2;
 
   // selector is the preferred (over legacy_selector) mechanism to select
-  // what envelope types the subscription wants.
+  // what envelope types the subscription wants. If there are no selectors
+  // given, no data will be sent.
   repeated Selector selectors = 4;
 
   // TODO: This can be removed once the envelope.deprecated_tags is removed.
@@ -36,7 +37,8 @@ message EgressBatchRequest {
   Selector legacy_selector = 2;
 
   // selector is the preferred (over legacy_selector) mechanism to select
-  // what envelope types the subscription wants.
+  // what envelope types the subscription wants. If there are no selectors
+  // given, no data will be sent.
   repeated Selector selectors = 4;
 
   // TODO: This can be removed once the envelope.deprecated_tags is removed.
