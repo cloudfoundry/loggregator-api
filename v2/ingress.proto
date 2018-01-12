@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package loggregator.v2;
 
+option java_package = "org.cloudfoudry.loggregator.v2";
+option java_outer_classname = "LoggregatorIngress";
+
 import "envelope.proto";
 
 service Ingress {

@@ -4,6 +4,9 @@ package loggregator.v2;
 
 import "envelope.proto";
 
+option java_package = "org.cloudfoudry.loggregator.v2";
+option java_outer_classname = "LoggregatorEgress";
+
 service Egress {
   rpc Receiver(EgressRequest) returns (stream Envelope) {}
   rpc BatchedReceiver(EgressBatchRequest) returns (stream EnvelopeBatch) {}
