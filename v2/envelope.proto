@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package loggregator.v2;
 
+option java_package = "org.cloudfoudry.loggregator.v2";
+option java_outer_classname = "LoggregatorEnvelope";
+
 message Envelope {
   int64 timestamp = 1;
   string source_id = 2;
