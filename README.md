@@ -160,7 +160,7 @@ if there are the correct gauge keys.
 | v1               | v2                                    |
 |------------------|---------------------------------------|
 | applicationId    | envelope.source_id                    |
-| instanceIndex    | gauge.metrics['instance_index'].value |
+| instanceIndex    | envelope.instance_id                  |
 | cpuPercentage    | gauge.metrics['cpu'].value            |
 | memoryBytes      | gauge.metrics['memory'].value         |
 | diskBytes        | gauge.metrics['disk'].value           |
