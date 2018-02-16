@@ -15,8 +15,14 @@ service Egress {
 message EgressRequest {
   // shard_id instructs Loggregator to shard envelopes between other
   // subscriptions with the same shard_id. Loggregator will do its best to
-  // split the load evenly between subscriptions with the same shard_id.
+  // split the load evenly between subscriptions with the same shard_id
+  // (unless deterministic_name is set).
   string shard_id = 1;
+
+  // deterministic_name is used to enable deterministic routing. This implies
+  // that gauges and counters are routed based on name. If this is excluded,
+  // then they are routed to split load evenly.
+  string deterministic_name = 5;
 
   // TODO: This can be removed once selector has been around long enough.
   Selector legacy_selector = 2;
@@ -33,8 +39,14 @@ message EgressRequest {
 message EgressBatchRequest {
   // shard_id instructs Loggregator to shard envelopes between other
   // subscriptions with the same shard_id. Loggregator will do its best to
-  // split the load evenly between subscriptions with the same shard_id.
+  // split the load evenly between subscriptions with the same shard_id
+  // (unless deterministic_name is set).
   string shard_id = 1;
+
+  // deterministic_name is used to enable deterministic routing. This implies
+  // that gauges and counters are routed based on name. If this is excluded,
+  // then they are routed to split load evenly.
+  string deterministic_name = 5;
 
   // TODO: This can be removed once selector has been around long enough.
   Selector legacy_selector = 2;
