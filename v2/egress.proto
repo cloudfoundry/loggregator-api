@@ -70,11 +70,15 @@ message LogSelector {
 // GaugeSelector instructs Loggregator to egress Gauge envelopes to the
 // given subscription.
 message GaugeSelector {
+  // Any egress Gauge envelope must consist of the given names.
+  repeated string names = 1;
 }
 
 // CounterSelector instructs Loggregator to egress Counter envelopes to the
 // given subscription
 message CounterSelector {
+  // Any egress Counter envelope must have the given name.
+  string name = 1;
 }
 
 // TimerSelector instructs Loggregator to egress Timer envelopes to the given
