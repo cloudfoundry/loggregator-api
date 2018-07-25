@@ -7,9 +7,9 @@ option java_outer_classname = "LoggregatorEnvelope";
 
 message Envelope {
   int64 timestamp = 1;
-  string source_id = 2;
-  string instance_id = 8;
-  map<string, Value> deprecated_tags = 3;
+  string source_id = 2 [json_name="source_id"];
+  string instance_id = 8 [json_name="instance_id"];
+  map<string, Value> deprecated_tags = 3 [json_name="deprecated_tags"];
   map<string, string> tags = 9;
 
   oneof message {
