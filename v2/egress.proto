@@ -32,8 +32,8 @@ message EgressRequest {
   // given, no data will be sent.
   repeated Selector selectors = 4;
 
-  // TODO: This can be removed once the envelope.deprecated_tags is removed.
-  bool use_preferred_tags = 3;
+  // Deprecated along with deprecated tags.
+  // bool use_preferred_tags = 3;
 }
 
 message EgressBatchRequest {
@@ -56,8 +56,8 @@ message EgressBatchRequest {
   // given, no data will be sent.
   repeated Selector selectors = 4;
 
-  // TODO: This can be removed once the envelope.deprecated_tags is removed.
-  bool use_preferred_tags = 3;
+  // Deprecated along with deprecated tags.
+  // bool use_preferred_tags = 3;
 }
 
 // Selector instructs Loggregator to only send envelopes that match the given
