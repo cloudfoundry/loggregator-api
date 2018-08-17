@@ -91,11 +91,11 @@ require.
 |------------|----------------------------------|
 | timestamp  | envelope.timestamp               |
 | tags       | envelope.tags                    |
-| origin     | envelope.tags['origin'].text     |
-| deployment | envelope.tags['deployment'].text |
-| job        | envelope.tags['job'].text        |
-| index      | envelope.tags['index'].text      |
-| ip         | envelope.tags['ip'].text         |
+| origin     | envelope.tags['origin']          |
+| deployment | envelope.tags['deployment']      |
+| job        | envelope.tags['job']             |
+| index      | envelope.tags['index']           |
+| ip         | envelope.tags['ip']              |
 
 
 #### HttpStartStop
@@ -107,16 +107,16 @@ An *HttpStartStop* envelope is derived from a v2 *Timer* envelope.
 | startTimestamp | timer.start                             |
 | stopTimestamp  | timer.stop                              |
 | applicationId  | envelope.source_id                      |
-| requestId      | envelope.tags['request_id'].text        |
-| peerType       | envelope.tags['peer_type'].text         |
-| method         | envelope.tags['method'].text            |
-| uri            | envelope.tags['uri'].text               |
-| remoteAddress  | envelope.tags['remote_address'].text    |
-| userAgent      | envelope.tags['user_agent'].text        |
-| statusCode     | envelope.tags['status_code'].integer    |
-| contentLength  | envelope.tags['content_length'].integer |
-| instanceIndex  | envelope.tags['instance_index'].integer |
-| forwarded      | envelope.tags['forwarded'].text         |
+| requestId      | envelope.tags['request_id']             |
+| peerType       | envelope.tags['peer_type']              |
+| method         | envelope.tags['method']                 |
+| uri            | envelope.tags['uri']                    |
+| remoteAddress  | envelope.tags['remote_address']         |
+| userAgent      | envelope.tags['user_agent']             |
+| statusCode     | envelope.tags['status_code']            |
+| contentLength  | envelope.tags['content_length']         |
+| instanceIndex  | envelope.tags['instance_index']         |
+| forwarded      | envelope.tags['forwarded']              |
 
 #### LogMessage
 
@@ -128,7 +128,7 @@ A *LogMessage* envelope is derived from a v2 *Log* envelope
 | message_type    | log.type                              |
 | timestamp       | envelope.timestamp                    |
 | app_id          | envelope.source_id                    |
-| source_type     | envelope.tags['source_type'].text     |
+| source_type     | envelope.tags['source_type']          |
 | source_instance | envelope.instance_id                  |
 
 #### CounterEvent
