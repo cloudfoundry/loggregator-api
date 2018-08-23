@@ -143,14 +143,15 @@ A *CounterEvent* envelope is dervied from a v2 *Counter* envelope
 
 #### ValueMetric
 
-A *ValueMetric* envelope is dervied from a v2 *Gauge* envelope. Each gauge
-value in a *Gauge* envelope will become a single *ValueMetric* envelope.
+One or more *ValueMetric* envelope are dervied from a v2 *Gauge* envelope. Each
+metric key/value in a *Gauge* envelope will become a single *ValueMetric*
+envelope.
 
-| v1    | v2                             |
-|-------|--------------------------------|
-| name  | first-key                      |
-| value | gauge.metrics[first-key].value |
-| unit  | gauge.metrics[first-key].unit  |
+| v1    | v2                       |
+|-------|--------------------------|
+| name  | key                      |
+| value | gauge.metrics[key].value |
+| unit  | gauge.metrics[key].unit  |
 
 #### ContainerMetric
 
