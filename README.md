@@ -133,7 +133,7 @@ A *LogMessage* envelope is derived from a v2 *Log* envelope
 
 #### CounterEvent
 
-A *CounterEvent* envelope is dervied from a v2 *Counter* envelope
+A *CounterEvent* envelope is derived from a v2 *Counter* envelope
 
 | v1    | v2            |
 |-------|---------------|
@@ -143,7 +143,7 @@ A *CounterEvent* envelope is dervied from a v2 *Counter* envelope
 
 #### ValueMetric
 
-One or more *ValueMetric* envelopes are dervied from a v2 *Gauge* envelope. Each
+One or more *ValueMetric* envelopes are derived from a v2 *Gauge* envelope. Each
 metric key/value in a *Gauge* envelope will become a single *ValueMetric*
 envelope.
 
@@ -155,7 +155,7 @@ envelope.
 
 #### ContainerMetric
 
-A *ContainerMetric* envelope is dervied from a v2 *Gauge* envelope if and only
+A *ContainerMetric* envelope is derived from a v2 *Gauge* envelope if and only
 if there are the correct gauge keys.
 
 | v1               | v2                                    |
