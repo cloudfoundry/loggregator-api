@@ -138,7 +138,7 @@ A *CounterEvent* envelope is derived from a v2 *Counter* envelope
 | v1    | v2            |
 |-------|---------------|
 | name  | counter.name  |
-| delta | -             |
+| delta | counter.delta |
 | total | counter.total |
 
 #### ValueMetric
