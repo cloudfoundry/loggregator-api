@@ -85,6 +85,10 @@ envelopes for things like `deployment`, `job`, and `index`. This functionality
 has been removed in the v2 API. Users should manually add whatever tags they
 require.
 
+### Preferred Tags
+
+When recieving envelopes from V2, Use preferred tags should be used on the egress request to receive v2 tags rather then v1 style tags. The v1 tags will be stored in `deprecated_tags` rather then `tags`.
+
 #### Envelope
 
 | v1         | v2                               |
