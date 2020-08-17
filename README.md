@@ -87,7 +87,7 @@ require.
 
 ### Preferred Tags
 
-When envelopes went from the v1 to the v2 format, tags changed from a typed format, to being strings in all cases. When recieving envelopes from V2, to get the string formatted tags `UsePreferredTags` should be used on the egress request. If this flag is not used, the v1 tags will be stored in `deprecated_tags` rather then `tags`, and will be formatted as `loggregator_v2.Value` rather then strings. 
+When envelopes went from the v1 to the v2 format, tags changed from a typed format, to being strings in all cases. When recieving envelopes from V2, to get the string formatted tags `UsePreferredTags` should be used on the egress request. If this flag is not used, the v1 tags will be stored in `deprecated_tags` rather then `tags`, and will be formatted as `loggregator_v2.Value` rather then strings. You should not use this tag if you want to use the v1 conversion function. 
 #### Envelope
 
 | v1         | v2                               |
