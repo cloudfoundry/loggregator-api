@@ -1,6 +1,8 @@
-# loggregator-api [![slack.cloudfoundry.org][slack-badge]][loggregator-slack]
+# loggregator-api
 
 This is the v2 API for [Loggregator][loggregator].
+
+If you have any questions, or want to get attention for a PR or issue please reach out on the [#logging-and-metrics channel in the cloudfoundry slack](https://cloudfoundry.slack.com/archives/CUW93AF3M)
 
 ### Table of Contents
 
@@ -178,8 +180,6 @@ to make it easier to create a client and connect to Loggregator to obtain logs
 and metrics.
 
 
-[slack-badge]:        https://slack.cloudfoundry.org/badge.svg
-[loggregator-slack]:  https://cloudfoundry.slack.com/archives/loggregator
-[loggregator]:        https://github.com/cloudfoundry/loggregator
+[loggregator]:        https://github.com/cloudfoundry/loggregator-release
 [client-library]:     https://code.cloudfoundry.org/go-loggregator
 
