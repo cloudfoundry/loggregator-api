@@ -4,6 +4,8 @@ package loggregator.v2;
 
 import "envelope.proto";
 
+option go_package = "code.cloudfoundry.org/go-loggregator/rpc/loggregator_v2";
+
 option java_package = "org.cloudfoundry.loggregator.v2";
 option java_outer_classname = "LoggregatorEgress";
 
