@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package loggregator.v2;
 
-import "envelope.proto";
+import "loggregator-api/v2/envelope.proto";
 
 option go_package = "code.cloudfoundry.org/go-loggregator/rpc/loggregator_v2";
 
